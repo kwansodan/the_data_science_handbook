@@ -31,7 +31,7 @@ df["First Name"] = df["Name"].apply(
 df["Last Name"] = df["Name"].apply(
     lambda s: get_first_last_name(s)[1])
 df["Age"] = df["Age"].apply(format_age)
-df["Birthdate"] = df["Birthdate"].apply(
-    format_date).astype(pd.datetime)
-print df
+df["Birthdate"] = pd.to_datetime(df["Birthdate"].apply(
+    format_date))
+print(df)
 
